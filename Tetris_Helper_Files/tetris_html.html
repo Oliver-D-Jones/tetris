@@ -1,0 +1,45 @@
+<html>
+
+<body>
+<textarea id="out"></textarea>
+</body>
+<script>
+var output=document.getElementById("out");
+function htmlSetup(){
+
+var classValue=nameValue="";
+var htmlString="<table id='tetris'>";
+
+for(var i=0;i<28;i++){
+
+	htmlString+="<tr>";
+
+	for(var j=0;j<14;j++){
+		cell=14*i+j;
+		if(i<6||i>25||j<2||j>11){
+			classValue="'border'";
+
+			if(i<6)
+				nameValue="'top'";
+			else if(i>25)
+				nameValue="'bottom'";
+			if(j<2||j>11)
+				nameValue="'side'";
+
+		}
+		else{
+			classValue="'clear'";
+			nameValue="'game'";
+
+		}
+		htmlString+="<td name="+nameValue+" class= "+classValue+" ></td>";
+	}
+	htmlString+="</tr>";
+}
+htmlString+="</table>";
+
+output.textContent=htmlString;
+}
+htmlSetup()
+</script>
+</html>
